@@ -15,7 +15,7 @@ const NavWrapper = styled.nav`
     > li{
       width: 33.33%;
       text-align: center;
-      padding: 16px;
+      padding: 4px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
