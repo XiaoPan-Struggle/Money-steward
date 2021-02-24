@@ -31,7 +31,6 @@ const NavWrapper = styled.nav`
           }
         }
       }
-      
     }
   }
 `;
