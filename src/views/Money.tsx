@@ -5,6 +5,11 @@ import styled from 'styled-components';
 const TagsSection = styled.section`
   background: #E4E9EF;
   padding: 12px 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   > ol{
     display: flex;
     margin: 0 -12px;
@@ -71,12 +76,45 @@ const CategorySection = styled.section`
   }
 `
 const NumberPadSection = styled.section`
-
+  display: flex;
+  flex-direction: column;
+  > .output{
+    background: #fb9a7f;
+    color: #fff;
+    text-align: right;
+    line-height: 72px;
+    padding: 0 16px;
+    font-size: 36px;
+    box-shadow: inset 0 -6px 6px -5px rgba(0,0,0,0.25),
+                inset 0 6px 6px -5px rgba(0,0,0,0.25);
+  }
+  > .pad{
+    > button{
+      float: left;
+      width: 25%;
+      height: 64px;
+      background: transparent;
+      border: 1px solid #eee;
+      font-weight: 600;
+      font-size: 16px;
+      &.ok{
+       height: 128px;
+       float: right; 
+      }
+      &.zero{
+        width: 50%;
+      }
+    }
+  }
+`
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
 `
 
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -99,8 +137,8 @@ function Money() {
         </ul>
       </CategorySection>
       <NumberPadSection>
-        <div>100</div>
-        <div>
+        <div className="output">100</div>
+        <div className="pad clearfix">
           <button>1</button>
           <button>2</button>
           <button>3</button>
@@ -112,12 +150,12 @@ function Money() {
           <button>7</button>
           <button>8</button>
           <button>9</button>
-          <button>OK</button>
-          <button>0</button>
+          <button className="ok">OK</button>
+          <button className="zero">0</button>
           <button>.</button>
         </div>
       </NumberPadSection>
-    </Layout>
+    </MyLayout>
   )
 }
 export default Money
