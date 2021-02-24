@@ -1,49 +1,65 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import React from 'react';
 import Icon from './Icon';
 
 
-
 const NavWrapper = styled.nav`
   line-height: 24px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.25);
-  > ul{
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+
+  > ul {
     display: flex;
-    > li{
+
+    > li {
       width: 33.33%;
       text-align: center;
-      padding: 4px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      > .icon{
-        width: 24px;
-        height: 24px;
+      > a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4px 0;
+        > .icon {
+          width: 24px;
+          height: 24px;
+        }
+        &.selected{
+          color: #f60;
+          .icon{
+            fill: #f60;
+          }
+        }
       }
+      
     }
   }
-`
+`;
 
 const Nav = () => {
-  return(
+  return (
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="tags"/>
-          <Link to="/tags">标签</Link>
+          <NavLink to="/tags" activeClassName="selected">
+            <Icon name="tags"/>
+            标签
+          </NavLink>
         </li>
         <li>
-          <Icon name="money" />
-          <Link to="/money">记一笔</Link>
+          <NavLink to="/money" activeClassName="selected">
+            <Icon name="money"/>
+            记账
+          </NavLink>
         </li>
         <li>
-          <Icon name="statistics" />
-          <Link to="/statistics">统计</Link>
+          <NavLink to="/statistics" activeClassName="selected">
+            <Icon name="statistics"/>
+            统计
+          </NavLink>
         </li>
       </ul>
     </NavWrapper>
-  )
-}
-export default Nav
+  );
+};
+export default Nav;
