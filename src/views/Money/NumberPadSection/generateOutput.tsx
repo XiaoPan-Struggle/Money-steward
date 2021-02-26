@@ -28,8 +28,6 @@ const generateOutput = (text:string,output:string) => {
       }
     case '清空':
       return '0'
-    case 'OK':
-      return 'OK'
     default:
       return ''
   }
