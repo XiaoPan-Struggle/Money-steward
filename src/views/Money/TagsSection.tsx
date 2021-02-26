@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { _TagsSection } from './TagsSection/UI';
+import {useTags} from 'useTags';
 
 type Props = {
   value: string[];
   onChange: (value:string[]) => void
 }
 const TagsSection: React.FC<Props> = (props) => {
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
+  const {tags,setTags} = useTags()
   const selectedTags = props.value;
   const onAddTag = () => {
     const tagName = window.prompt('请输入您要添加的标签名');
