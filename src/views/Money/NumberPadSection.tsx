@@ -1,44 +1,26 @@
-import styled from 'styled-components';
-import React from 'react';
-
-const _NumberPadSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  > .output{
-    background: #fb9a7f;
-    color: #fff;
-    text-align: right;
-    line-height: 72px;
-    padding: 0 16px;
-    font-size: 36px;
-    box-shadow: inset 0 -6px 6px -5px rgba(0,0,0,0.25),
-                inset 0 6px 6px -5px rgba(0,0,0,0.25);
-  }
-  > .pad{
-    > button{
-      float: left;
-      width: 25%;
-      height: 64px;
-      background: transparent;
-      border: 1px solid #eee;
-      font-weight: 600;
-      font-size: 16px;
-      &.ok{
-       height: 128px;
-       float: right; 
-      }
-      &.zero{
-        width: 50%;
-      }
-    }
-  }
-`
+import React, {useState} from 'react';
+import { generateOutput } from './NumberPadSection/generateOutput';
+import { _NumberPadSection } from './NumberPadSection/UI';
 
 const NumberPadSection: React.FC = () => {
+  const [output,_setOutput] = useState('0')
+  const setOutput = (output:string) => {
+    if (output.length > 16){
+      output = output.slice(0,16)
+    }
+    _setOutput(output)
+  }
+  const onClickButtonWrapper = (e:React.MouseEvent) => {
+    const text = (e.target as HTMLButtonElement).textContent
+    if (text === null) {return}
+    if ('1234567890.'.split('').concat(['删除','清空']).indexOf(text) !== -1){
+      setOutput(generateOutput(text,output))
+    }
+  }
   return(
     <_NumberPadSection>
-      <div className="output">100</div>
-      <div className="pad clearfix">
+      <div className="output">{output}</div>
+      <div className="pad clearfix" onClick={onClickButtonWrapper}>
         <button>1</button>
         <button>2</button>
         <button>3</button>
