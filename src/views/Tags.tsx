@@ -1,16 +1,60 @@
-import Layout from '../components/Layout';
+import Layout from 'components/Layout';
 import React from 'react';
 import {useTags} from 'useTags';
+import styled from 'styled-components';
+import Icon from 'components/Icon';
+
+const TagList = styled.ol`
+  font-size: 16px;
+  > li{
+    border-bottom: 2px solid #99c5e8;
+    line-height: 20px;
+    padding: 12px 14px;
+    background: #fbee83;
+    margin: 0 5px;
+    border-radius: 10px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: #fb9a7f;
+    }
+  }
+`
+const Button = styled.button`
+  border: none;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #fb9a7f;
+  color: #fff;
+  font-weight: 600;
+`
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+`
 
 function Tags() {
   const {tags,setTags} = useTags()
   return(
     <Layout>
-      <ol>
+      <TagList>
         {tags.map(tag => (
-          <li key={tag}>{tag}</li>
+          <li className="oneLine" key={tag}>
+            <span>{tag}</span>
+            <Icon name="right" />
+          </li>
         ))}
-      </ol>
+      </TagList>
+      <Center>
+        <Button>新增标签</Button>
+      </Center>
     </Layout>
   )
 }
