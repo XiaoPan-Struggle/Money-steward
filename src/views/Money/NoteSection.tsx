@@ -15,6 +15,7 @@ const NoteSection: React.FC<Props> = (props) => {
     <_NotesSection>
       <Input label="备注"
              type="text"
+             placeholder="这里是备注信息"
              value={note}
              onChange={onChange}>
       </Input>

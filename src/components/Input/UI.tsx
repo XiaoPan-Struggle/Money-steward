@@ -4,17 +4,17 @@ const Label = styled.label`
     display: flex;
     align-items: center;
     > span{
-      font-size: 16px;
+      font-size: 18px;
       margin-right: 16px;
       white-space: nowrap;
     }
     > input{
       display: block;
       width: 100%;
-      height: 72px;
+      height: 44px;
       background: none;
       border: none;
-      font-size: 18px;
+      font-size: 16px;
     }
 `
 export {Label}
