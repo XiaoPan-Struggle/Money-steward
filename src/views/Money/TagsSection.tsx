@@ -1,40 +1,40 @@
 import React from 'react';
-import { _TagsSection } from './TagsSection/UI';
+import {_TagsSection} from './TagsSection/UI';
 import {useTags} from 'useTags';
 
 type Props = {
-  value: string[];
-  onChange: (value:string[]) => void
+  value: number[];
+  onChange: (value: number[]) => void
 }
 const TagsSection: React.FC<Props> = (props) => {
-  const {tags,setTags} = useTags()
-  const selectedTags = props.value;
+  const {tags, setTags} = useTags();
+  const selectedTagIds = props.value;
   const onAddTag = () => {
     const tagName = window.prompt('请输入您要添加的标签名');
     if (tagName !== null) {
-      setTags([...tags,tagName])
+      setTags([...tags, {id: Math.random(), name: tagName}]);
     }
-  }
-  const onToggleTag = (tag: string) => {
+  };
+  const onToggleTag = (tagId: number) => {
     // selectedTags 里存放被选中的标签
-    const index = selectedTags.indexOf(tag)
-    if(index >= 0){
-      props.onChange(selectedTags.filter(t => t!== tag))
-    }else {
-      props.onChange([...selectedTags,tag])
+    const index = selectedTagIds.indexOf(tagId);
+    if (index >= 0) {
+      props.onChange(selectedTagIds.filter(t => t !== tagId));
+    } else {
+      props.onChange([...selectedTagIds, tagId]);
     }
-  }
-  const getClass = (tag: string) => (selectedTags.indexOf(tag) >= 0 ? 'selected' : '')
-  return(
+  };
+  const getClass = (tagId: number) => (selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '');
+  return (
     <_TagsSection>
       <ol>
         {tags.map(tag =>
-          <li className={getClass(tag)} key={tag} onClick={() => {onToggleTag(tag)}} >{tag}</li>
+          <li className={getClass(tag.id)} key={tag.id} onClick={() => {onToggleTag(tag.id);}}>{tag.name}</li>
         )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
     </_TagsSection>
-  )
-}
+  );
+};
 
-export {TagsSection}
+export {TagsSection};
