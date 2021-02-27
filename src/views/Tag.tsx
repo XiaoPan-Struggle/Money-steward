@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {useTags} from 'useTags';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
-import {Button} from './Tags/UI';
+import {Button, Center} from './Tags/UI';
 import styled from 'styled-components';
 import {Input} from 'components/Input';
 
@@ -46,9 +46,9 @@ const Tag: React.FC = () => {
                placeholder="标签名"
         />
       </InputWrapper>
-      <div>
+      <Center>
         <Button>删除标签</Button>
-      </div>
+      </Center>
       <div>{tag.name}</div>
     </Layout>
   );
