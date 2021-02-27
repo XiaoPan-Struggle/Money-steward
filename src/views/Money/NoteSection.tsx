@@ -1,5 +1,6 @@
-import React, {useRef} from 'react';
+import React, {ChangeEventHandler} from 'react';
 import { _NotesSection } from './NoteSection/UI';
+import {Input} from 'components/Input';
 
 type Props = {
   value: string;
@@ -7,22 +8,16 @@ type Props = {
 }
 const NoteSection: React.FC<Props> = (props) => {
   const note = props.value
-  const refInput = useRef<HTMLInputElement>(null)
-  const onBlur = () => {
-    if(refInput.current !== null){
-      props.onChange(refInput.current.value)
-    }
+  const onChange:ChangeEventHandler<HTMLInputElement> = (e) => {
+      props.onChange(e.target.value)
   }
   return(
     <_NotesSection>
-      <label>
-        <span>备注：</span>
-        <input type="text" placeholder="在这里添加备注信息"
-               ref={refInput}
-               defaultValue={note}
-               onBlur={onBlur}
-        />
-      </label>
+      <Input label="备注"
+             type="text"
+             value={note}
+             onChange={onChange}>
+      </Input>
     </_NotesSection>
   )
 }
