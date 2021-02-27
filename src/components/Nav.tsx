@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import React from 'react';
-import Icon from './Icon';
-import {NavWrapper} from './Nav/UI';
+import Icon from 'components/Icon';
+import {NavWrapper} from 'components/Nav/UI';
 
 const Nav = () => {
   return (

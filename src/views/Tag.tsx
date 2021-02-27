@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import {useTags} from 'useTags';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
-import {Button, Center} from './Tags/UI';
+import {Button, Center} from 'views/Tags/UI';
 import styled from 'styled-components';
 import {Input} from 'components/Input';
 

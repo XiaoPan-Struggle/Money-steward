@@ -1,5 +1,5 @@
 import React from 'react';
-import {Label} from './Input/UI';
+import {Label} from 'components/Input/UI';
 
 type Props = {
   label: string;
