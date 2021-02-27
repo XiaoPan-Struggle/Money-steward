@@ -25,8 +25,10 @@ const Topper = styled.header`
   }
 `;
 const InputWrapper = styled.div`
-  background: white;
+  background: #fddce1;
   padding: 0 16px;
+  margin: 8px 10px 0 10px;
+  border-radius: 10px;
 `
 
 const Tag: React.FC = () => {
@@ -44,12 +46,12 @@ const Tag: React.FC = () => {
         <Input label="标签名"
                type="text"
                placeholder="标签名"
+               value={tag.name}
         />
       </InputWrapper>
       <Center>
         <Button>删除标签</Button>
       </Center>
-      <div>{tag.name}</div>
     </Layout>
   );
 };
