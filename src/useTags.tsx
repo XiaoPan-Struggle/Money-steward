@@ -2,16 +2,19 @@ import {useEffect, useState} from 'react';
 import {createId} from 'lib/createId';
 import {useUpdate} from 'Hooks/useUpdate';
 
-// const defaultId = [
-//   {id: createId(), name: '衣'},
-//   {id: createId(), name: '食'},
-//   {id: createId(), name: '住'},
-//   {id: createId(), name: '行'}
-// ];
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
   useEffect(() => {
-    setTags(JSON.parse(window.localStorage.getItem('tags') || '[]'));
+    let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]')
+    if (localTags.length === 0) {
+      localTags = [
+        {id: createId(), name: '衣'},
+        {id: createId(), name: '食'},
+        {id: createId(), name: '住'},
+        {id: createId(), name: '行'}
+      ]
+    }
+    setTags(localTags)
   }, []);
 
   useUpdate(() => {
@@ -41,7 +44,7 @@ const useTags = () => {
 
   const addTag = () => {
     const tagName = window.prompt('请输入您要添加的标签名');
-    if (tagName !== null) {
+    if (tagName !== null && tagName !== '') {
       setTags([...tags, {id: createId(), name: tagName}]);
     }
   };
