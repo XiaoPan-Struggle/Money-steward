@@ -1,6 +1,6 @@
 import Layout from 'components/Layout';
 import React from 'react';
-import {useTags} from 'useTags';
+import {useTags} from 'Hooks/useTags';
 import Icon from 'components/Icon';
 import {Link} from 'react-router-dom';
 import {Button, Center, TagList} from './Tags/UI';

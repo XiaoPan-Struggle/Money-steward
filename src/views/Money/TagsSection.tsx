@@ -1,6 +1,6 @@
 import React from 'react';
 import {_TagsSection} from './TagsSection/UI';
-import {useTags} from 'useTags';
+import {useTags} from 'Hooks/useTags';
 type Props = {
   value: number[];
   onChange: (value: number[]) => void
