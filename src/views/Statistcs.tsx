@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import React, {useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import {CategorySection} from './Money/CategorySection';
 import {RecordItem, useRecords} from 'Hooks/useRecords';
 import {useTags} from 'Hooks/useTags';
@@ -13,7 +13,7 @@ const Item = styled.div`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
-  background: #fccdb3;
+  background: #feae97;
 
   > .note {
     margin-right: auto;
@@ -22,6 +22,12 @@ const Item = styled.div`
     color: #888;
   }
 `;
+const Header = styled.h3`
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 16px;
+  background: #f9e1bb;
+`
 
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');
@@ -31,7 +37,7 @@ function Statistics() {
   const selectedRecords = records.filter(r => r.category === category);
 
   selectedRecords.map(r => {
-    const key = day(r.createdAt).format('YYYY-MM-DD');
+    const key = day(r.createdAt).format('YYYY年MM月DD日');
     const value = r;
     if (!(key in hash)) {
       hash[key] = [];
@@ -54,21 +60,25 @@ function Statistics() {
       <CategorySection value={category}
                        onChange={value => setCategory(value)}/>
       {array.map(([date,records]) => <div>
-          <h3>{date}</h3>
+          <Header>{date}</Header>
           <div>
             {
               records.map(r => {
                 return <Item>
-                  <div className="tag">
-                    {r.tagIds.map(tagId => <span key={tagId}>{getName(tagId)}</span>)}
+                  <div className="tag oneLine">
+                    {r.tagIds
+                      .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
+                      .reduce((result, span,index,array) =>
+                        result.concat(index<array.length-1 ? [span, '，']:[span]),
+                        [] as ReactNode[])
+                    }
                   </div>
-                  <div className="note">
+                  <div className="note oneLine">
                     {r.note}
                   </div>
                   <div className="amount">
                     ￥{r.amount}
                   </div>
-                  {day(r.createdAt).format('YYYY年MM月DD日')}
                 </Item>;
               })
             }

@@ -26,6 +26,7 @@ export const useRecords = () => {
     }
     const record = {...newRecord,createdAt: (new Date()).toISOString()}
     setRecords([...records,record])
+    return true
   }
   useUpdate(() => {
     window.localStorage.setItem('records',JSON.stringify(records))
