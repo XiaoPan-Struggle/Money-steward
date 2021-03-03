@@ -54,7 +54,6 @@ function Statistics() {
       return 0;
     }
   });
-  console.log(array);
   return (
     <Layout>
       <CategorySection value={category}
