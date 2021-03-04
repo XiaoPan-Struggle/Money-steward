@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
 `
@@ -22,4 +23,5 @@ const Layout = (props:any) => {
     </Wrapper>
   )
 }
+
 export default Layout

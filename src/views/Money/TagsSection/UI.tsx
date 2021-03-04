@@ -4,9 +4,10 @@ const _TagsSection = styled.section`
   background: #E4E9EF;
   padding: 12px 16px;
   flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-start;
   > ol{
     display: flex;
