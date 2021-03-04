@@ -1,33 +1,12 @@
 import Layout from 'components/Layout';
 import React, {ReactNode, useState} from 'react';
-import {CategorySection} from './Money/CategorySection';
+import {CategorySection} from 'views/Money/CategorySection';
 import {RecordItem, useRecords} from 'Hooks/useRecords';
 import {useTags} from 'Hooks/useTags';
+import {Header, Item} from 'views/Statistcs/UI';
 import day from 'dayjs';
-import styled from 'styled-components';
 import 'core-js';
 
-const Item = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  line-height: 20px;
-  padding: 10px 16px;
-  background: #feae97;
-
-  > .note {
-    margin-right: auto;
-    margin-left: 18px;
-    font-size: 16px;
-    color: #888;
-  }
-`;
-const Header = styled.h3`
-  font-size: 18px;
-  line-height: 20px;
-  padding: 10px 16px;
-  background: #f9e1bb;
-`
 
 function Statistics() {
   const [category, setCategory] = useState<'-' | '+'>('-');

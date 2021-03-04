@@ -1,5 +1,5 @@
 import React, {ChangeEventHandler} from 'react';
-import { _NotesSection } from './NoteSection/UI';
+import { _NotesSection } from 'views/Money/NoteSection/UI';
 import {Input} from 'components/Input';
 
 type Props = {

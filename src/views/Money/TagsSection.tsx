@@ -1,5 +1,5 @@
 import React from 'react';
-import {_TagsSection} from './TagsSection/UI';
+import {_TagsSection} from 'views/Money/TagsSection/UI';
 import {useTags} from 'Hooks/useTags';
 type Props = {
   value: number[];

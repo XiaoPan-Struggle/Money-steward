@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { generateOutput } from './NumberPadSection/generateOutput';
-import { _NumberPadSection } from './NumberPadSection/UI';
+import { generateOutput } from 'views/Money/NumberPadSection/generateOutput';
+import { _NumberPadSection } from 'views/Money/NumberPadSection/UI';
 
 type Props = {
   value: number;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { _CategorySection } from './CategorySection/UI';
+import { _CategorySection } from 'views/Money/CategorySection/UI';
 
 type Props = {
   value: '-' | '+';

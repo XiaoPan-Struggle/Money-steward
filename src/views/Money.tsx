@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {TagsSection} from './Money/TagsSection';
-import {CategorySection} from './Money/CategorySection';
-import {NoteSection} from './Money/NoteSection';
-import {NumberPadSection} from './Money/NumberPadSection';
-import {useRecords} from '../Hooks/useRecords';
+import {TagsSection} from 'views/Money/TagsSection';
+import {CategorySection} from 'views/Money/CategorySection';
+import {NoteSection} from 'views/Money/NoteSection';
+import {NumberPadSection} from 'views/Money/NumberPadSection';
+import {useRecords} from 'Hooks/useRecords';
 
 const MyLayout = styled(Layout)`
   display: flex;

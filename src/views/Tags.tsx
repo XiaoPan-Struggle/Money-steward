@@ -3,7 +3,7 @@ import React from 'react';
 import {useTags} from 'Hooks/useTags';
 import Icon from 'components/Icon';
 import {Link} from 'react-router-dom';
-import {Button, Center, TagList} from './Tags/UI';
+import {Button, Center, TagList} from 'views/Tags/UI';
 
 function Tags() {
   const {tags, addTag} = useTags();
