@@ -31,6 +31,14 @@ const _NumberPadSection = styled.section`
         width: 50%;
       }
     }
+    @media (max-height: 570px) {
+      > button{
+        height: 40px;
+        &.ok{
+          height: 80px;
+        }
+      }
+    }
   }
 `
 export {_NumberPadSection}
